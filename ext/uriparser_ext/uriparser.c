@@ -1,9 +1,7 @@
 #include <ruby.h>
 #include <uriparser/Uri.h>
 
-#define FALSE 0
-#define TRUE 1
-typedef char bool;
+#include <stdbool.h>
 
 #define URI_TEXT_RANGE(uri_ptr, uri_field) \
     ((uri_ptr->uri_field.afterLast == uri_ptr->uri_field.first) ? \
@@ -45,7 +43,7 @@ typedef char bool;
         else {                                                  \
             data->attribute = StringValue(attribute);           \
         }                                                       \
-        data->updated = TRUE;                                   \
+        data->updated = true;                                   \
         rb_gc_mark(old);                                        \
                                                                 \
         return data->attribute;                                 \
@@ -112,7 +110,7 @@ rb_uriparser_s_allocate(VALUE klass)
 
     if( data ) {
         data->uri       = NULL;
-        data->updated   = FALSE;
+        data->updated   = false;
         data->scheme    = Qundef;
         data->userinfo  = Qundef;
         data->host      = Qundef;
@@ -251,7 +249,7 @@ rb_uriparser_to_s(VALUE self)
 static void
 reset_fields(struct uri_data *data)
 {
-    data->updated = FALSE;
+    data->updated = false;
 
     rb_gc_mark(data->scheme);
     data->scheme = Qundef;
