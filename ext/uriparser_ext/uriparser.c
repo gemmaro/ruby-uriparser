@@ -141,6 +141,7 @@ rb_uriparser_s_allocate(VALUE klass)
 static VALUE
 rb_uriparser_s_parse(VALUE klass, VALUE uri_obj)
 {
+    (void)klass;
     char *str_uri = StringValueCStr(uri_obj);
     UriUriA *uri = ALLOC(UriUriA);
     struct uri_data *data;
@@ -228,12 +229,14 @@ rb_uriparser_normalize_bang(VALUE self)
 static VALUE
 rb_uriparser_escape(VALUE self)
 {
+    (void)self;
     return Qnil;
 }
 
 static VALUE
 rb_uriparser_unescape(VALUE self)
 {
+    (void)self;
     return Qnil;
 }
 
