@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <ruby.h>
 #include <uriparser/Uri.h>
 
