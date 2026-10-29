@@ -377,6 +377,7 @@ void
 Init_uriparser_ext()
 {
     rb_mUriParser = rb_define_module("UriParser");
+    rb_require("uri");
     rb_cUri_Class = rb_define_class_under(rb_mUriParser, "URI", rb_cObject);
     /* NOTE: Reuse URI exceptions */
     rb_eError = rb_path2class("URI::Error");
